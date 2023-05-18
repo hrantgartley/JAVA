@@ -5,14 +5,13 @@ import java.util.Scanner;
 public class Currency {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.print("Input a value to be converted to Euros: ");
+        System.out.print("Input a value in USD to be converted to Euros: ");
         double Dollar = scan.nextDouble();
         double Euro = 0;
         Currency currency = new Currency();
         Euro = currency.UsdToEuro(Dollar);
         Euro = Math.round(Euro * 100.0) / 100.0;
-        System.out.println(Dollar + " converted to Euros is " + Euro);
-        System.out.println("Meep`");
+        System.out.println("$" + Dollar + " converted to Euros is " + Euro);
         scan.close();
     }
 

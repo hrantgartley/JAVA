@@ -1,9 +1,5 @@
 import java.util.Scanner;
 
-
-
-// create a constructor that takes an array of integers as a parameter
-
 public class MinMaxArray {
     public static void main(String[] args) {
         int myArray[] = new int[5];
@@ -18,10 +14,12 @@ public class MinMaxArray {
         int Sum = mma.FindSum(myArray);
         int Min = mma.findMin(myArray);
         int Max = mma.findMax(myArray);
+        int Prod = mma.findProd(myArray);
 
         System.out.println("The sum of the array is: " + Sum);
         System.out.println("The Min of the array is: " + Min);
         System.out.println("The Max of the array is: " + Max);
+        System.out.println("The Product of the array is: " + Prod);
         scan.close();
     }
 
@@ -65,5 +63,19 @@ public class MinMaxArray {
         int rightSum = FindSumRec(myArray, mid + 1, end);
 
         return leftSum + rightSum;
+    }
+
+    public int findProd(int[] myArray) {
+        return findProdRec(myArray, 0, myArray.length - 1);
+    }
+
+    private int findProdRec(int[] myArray, int start, int end) {
+        if (start == end)
+            return myArray[start];
+        int mid = (start + end) / 2;
+        int leftProd = findProdRec(myArray, start, mid);
+        int rightProd = findProdRec(myArray, mid + 1, end);
+
+        return leftProd * rightProd;
     }
 }
